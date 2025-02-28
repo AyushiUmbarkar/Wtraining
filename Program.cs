@@ -4,113 +4,101 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Collection
+
+/*class Studentuniversity
 {
-    class Program
-    {
-        // Define Employee collection using SortedDictionary
-        static SortedDictionary<int, Employee> employees = new SortedDictionary<int, Employee>
-    {
-        { 101, new Employee { Name = "Ayushi", Designation = "Manager", Salary = 70000 } },
-        { 102, new Employee { Name = "Swamini", Designation = "Developer", Salary = 60000 } },
-        { 103, new Employee { Name = "Anuradha", Designation = "Designer", Salary = 50000 } },
-        {104,new Employee{Name="Ex",Designation="Hr",Salary=5000} }
-    };
-
-        static void Main()
-        {
-            while (true)
-            {
-                Console.WriteLine("\n1. Display Employees\n2. Remove Employee\n3. Update Salary\n4. Exit");
-                Console.Write("Enter your choice: ");
-                int choice;
-
-                if (!int.TryParse(Console.ReadLine(), out choice))
-                {
-                    Console.WriteLine("Invalid input! Please enter a valid number.");
-                    continue;
-                }
-
-                switch (choice)
-                {
-                    case 1:
-                        DisplayEmployees();
-                        break;
-                    case 2:
-                        Console.Write("Enter Employee ID to remove: ");
-                        int removeId = int.Parse(Console.ReadLine());
-                        RemoveEmployee(removeId);
-                        break;
-                    case 3:
-                        Console.Write("Enter Employee ID to update salary: ");
-                        int updateId = int.Parse(Console.ReadLine());
-                        Console.Write("Enter new salary: ");
-                        double newSalary = double.Parse(Console.ReadLine());
-                        UpdateSalary(updateId, newSalary);
-                        break;
-                    case 4:
-                        Console.WriteLine("Exiting program.");
-                        return;
-                    default:
-                        Console.WriteLine("Invalid choice! Please try again.");
-                        break;
-                }
-            }
-        }
-
-        // Function to display all employee records
-        static void DisplayEmployees()
-        {
-            Console.WriteLine("\nEmployee Records:");
-            if (employees.Count == 0)
-            {
-                Console.WriteLine("No employee records found.");
-                return;
-            }
-
-            foreach (var emp in employees)
-            {
-                Console.WriteLine($"ID: {emp.Key}, Name: {emp.Value.Name}, Designation: {emp.Value.Designation}, Salary: {emp.Value.Salary}");
-            }
-        }
-
-        // Function to remove an employee by ID
-        static void RemoveEmployee(int id)
-        {
-            if (employees.ContainsKey(id))
-            {
-                employees.Remove(id);
-                Console.WriteLine($"Employee with ID {id} removed successfully.");
-            }
-            else
-            {
-                Console.WriteLine("Employee ID not found.");
-            }
-        }
-
-        // Function to update an employee's salary
-        static void UpdateSalary(int id, double newSalary)
-        {
-            if (employees.ContainsKey(id))
-            {
-                employees[id].Salary = newSalary;
-                Console.WriteLine($"Salary updated for Employee ID {id}. New Salary: {newSalary}");
-            }
-            else
-            {
-                Console.WriteLine("Employee ID not found.");
-            }
-        }
-    }
-
-    // Employee class definition
-    class Employee
-    {
-        public string Name { get; set; }
-        public string Designation { get; set; }
-        public double Salary { get; set; }
-    }
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public int Age { get; set; }
 }
 
+class Program
+{
+    static List<Studentuniversity> students = new List<Studentuniversity>();
 
+    static void Main()
+    {
+        while (true)
+        {
+            Console.WriteLine("\nUniversity Student Management System");
+            Console.WriteLine("1. Add Student");
+            Console.WriteLine("2. Display Students");
+            Console.WriteLine("3. Remove Student");
+            Console.WriteLine("4. Exit");
+            Console.Write("Enter your choice: ");
+
+            int choice;
+            if (!int.TryParse(Console.ReadLine(), out choice))
+            {
+                Console.WriteLine("Invalid input, please enter a number.");
+                continue;
+            }
+
+            switch (choice)
+            {
+                case 1:
+                    AddStudent();
+                    break;
+                case 2:
+                    DisplayStudents();
+                    break;
+                case 3:
+                    RemoveStudent();
+                    break;
+                case 4:
+                    return;
+                default:
+                    Console.WriteLine("Invalid choice, please try again.");
+                    break;
+            }
+        }
+    }
+
+    static void AddStudent()
+    {
+        Console.Write("Enter Student ID: ");
+        int id = int.Parse(Console.ReadLine());
+
+        Console.Write("Enter Student Name: ");
+        string name = Console.ReadLine();
+
+        Console.Write("Enter Student Age: ");
+        int age = int.Parse(Console.ReadLine());
+
+        students.Add(new Studentuniversity { Id = id, Name = name, Age = age });
+        Console.WriteLine("Student added successfully.");
+    }
+
+    static void DisplayStudents()
+    {
+        if (students.Count == 0)
+        {
+            Console.WriteLine("No students found.");
+            return;
+        }
+
+        Console.WriteLine("\nStudent List:");
+        foreach (var student in students)
+        {
+            Console.WriteLine($"ID: {student.Id}, Name: {student.Name}, Age: {student.Age}");
+        }
+    }
+
+    static void RemoveStudent()
+    {
+        Console.Write("Enter Student ID to remove: ");
+        int id = int.Parse(Console.ReadLine());
+
+        Studentuniversity studentToRemove = students.Find(s => s.Id == id);
+        if (studentToRemove != null)
+        {
+            students.Remove(studentToRemove);
+            Console.WriteLine("Student removed successfully.");
+        }
+        else
+        {
+            Console.WriteLine("Student not found.");
+        }
+    }*/
+}
 
